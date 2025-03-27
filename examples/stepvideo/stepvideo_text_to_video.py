@@ -13,20 +13,20 @@ import torch
 # Load models
 model_manager = ModelManager()
 model_manager.load_models(
-    ["/home/weicai12/models/stepfun-ai/stepvideo-t2v/hunyuan_clip/clip_text_encoder/pytorch_model.bin"],
+    ["/home/weicai12/models/stepvideo-t2v/hunyuan_clip/clip_text_encoder/pytorch_model.bin"],
     torch_dtype=torch.float32, device="cpu"
 )
 model_manager.load_models(
     [
-        "/home/weicai12/models/stepfun-ai/stepvideo-t2v/step_llm",
-        "/home/weicai12/models/stepfun-ai/stepvideo-t2v/vae/vae_v2.safetensors",
+        "/home/weicai12/models/stepvideo-t2v/step_llm",
+        "/home/weicai12/models/stepvideo-t2v/vae/vae_v2.safetensors",
         [
-            "/home/weicai12/models/stepfun-ai/stepvideo-t2v/transformer/diffusion_pytorch_model-00001-of-00006.safetensors",
-            "/home/weicai12/models/stepfun-ai/stepvideo-t2v/transformer/diffusion_pytorch_model-00002-of-00006.safetensors",
-            "/home/weicai12/models/stepfun-ai/stepvideo-t2v/transformer/diffusion_pytorch_model-00003-of-00006.safetensors",
-            "/home/weicai12/models/stepfun-ai/stepvideo-t2v/transformer/diffusion_pytorch_model-00004-of-00006.safetensors",
-            "/home/weicai12/models/stepfun-ai/stepvideo-t2v/transformer/diffusion_pytorch_model-00005-of-00006.safetensors",
-            "/home/weicai12/models/stepfun-ai/stepvideo-t2v/transformer/diffusion_pytorch_model-00006-of-00006.safetensors",
+            "/home/weicai12/models/stepvideo-t2v/transformer/diffusion_pytorch_model-00001-of-00006.safetensors",
+            "/home/weicai12/models/stepvideo-t2v/transformer/diffusion_pytorch_model-00002-of-00006.safetensors",
+            "/home/weicai12/models/stepvideo-t2v/transformer/diffusion_pytorch_model-00003-of-00006.safetensors",
+            "/home/weicai12/models/stepvideo-t2v/transformer/diffusion_pytorch_model-00004-of-00006.safetensors",
+            "/home/weicai12/models/stepvideo-t2v/transformer/diffusion_pytorch_model-00005-of-00006.safetensors",
+            "/home/weicai12/models/stepvideo-t2v/transformer/diffusion_pytorch_model-00006-of-00006.safetensors",
         ]
     ],
     torch_dtype=torch.bfloat16, device="cpu"
