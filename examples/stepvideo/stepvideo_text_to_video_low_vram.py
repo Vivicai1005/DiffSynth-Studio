@@ -18,7 +18,7 @@ model_manager.load_models(
 )
 model_manager.load_models(
     [
-        "models/stepfun-ai/stepvideo-t2v/step_llm",
+        "/home/weicai/stepvideo-t2v/step_llm",
         [
             "/home/weicai/stepvideo-t2v/transformer/diffusion_pytorch_model-00001-of-00006.safetensors",
             "/home/weicai/stepvideo-t2v/transformer/diffusion_pytorch_model-00002-of-00006.safetensors",
