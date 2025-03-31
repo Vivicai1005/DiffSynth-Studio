@@ -4,34 +4,34 @@ import torch
 
 
 # Download models
-snapshot_download(model_id="stepfun-ai/stepvideo-t2v", cache_dir="models")
+#snapshot_download(model_id="stepfun-ai/stepvideo-t2v", cache_dir="models")
 
 # Load the compiled attention for the LLM text encoder.
 # If you encounter errors here. Please select other compiled file that matches your environment or delete this line.
-torch.ops.load_library("models/stepfun-ai/stepvideo-t2v/lib/liboptimus_ths-torch2.5-cu124.cpython-310-x86_64-linux-gnu.so")
+#torch.ops.load_library("models/stepfun-ai/stepvideo-t2v/lib/liboptimus_ths-torch2.5-cu124.cpython-310-x86_64-linux-gnu.so")
 
 # Load models
 model_manager = ModelManager()
 model_manager.load_models(
-    ["models/stepfun-ai/stepvideo-t2v/hunyuan_clip/clip_text_encoder/pytorch_model.bin"],
+    ["/home/weicai/stepvideo-t2v/hunyuan_clip/clip_text_encoder/pytorch_model.bin"],
     torch_dtype=torch.float32, device="cpu"
 )
 model_manager.load_models(
     [
         "models/stepfun-ai/stepvideo-t2v/step_llm",
         [
-            "models/stepfun-ai/stepvideo-t2v/transformer/diffusion_pytorch_model-00001-of-00006.safetensors",
-            "models/stepfun-ai/stepvideo-t2v/transformer/diffusion_pytorch_model-00002-of-00006.safetensors",
-            "models/stepfun-ai/stepvideo-t2v/transformer/diffusion_pytorch_model-00003-of-00006.safetensors",
-            "models/stepfun-ai/stepvideo-t2v/transformer/diffusion_pytorch_model-00004-of-00006.safetensors",
-            "models/stepfun-ai/stepvideo-t2v/transformer/diffusion_pytorch_model-00005-of-00006.safetensors",
-            "models/stepfun-ai/stepvideo-t2v/transformer/diffusion_pytorch_model-00006-of-00006.safetensors",
+            "/home/weicai/stepvideo-t2v/transformer/diffusion_pytorch_model-00001-of-00006.safetensors",
+            "/home/weicai/stepvideo-t2v/transformer/diffusion_pytorch_model-00002-of-00006.safetensors",
+            "/home/weicai/stepvideo-t2v/transformer/diffusion_pytorch_model-00003-of-00006.safetensors",
+            "/home/weicai/stepvideo-t2v/transformer/diffusion_pytorch_model-00004-of-00006.safetensors",
+            "/home/weicai/stepvideo-t2v/transformer/diffusion_pytorch_model-00005-of-00006.safetensors",
+            "/home/weicai/stepvideo-t2v/transformer/diffusion_pytorch_model-00006-of-00006.safetensors",
         ]
     ],
     torch_dtype=torch.bfloat16, device="cpu" # You can set torch_dtype=torch.bfloat16 to reduce RAM (not VRAM) usage.
 )
 model_manager.load_models(
-    ["models/stepfun-ai/stepvideo-t2v/vae/vae_v2.safetensors"],
+    ["/home/weicai/stepvideo-t2v/vae/vae_v2.safetensors"],
     torch_dtype=torch.bfloat16, device="cpu"
 )
 pipe = StepVideoPipeline.from_model_manager(model_manager, torch_dtype=torch.bfloat16, device="cuda")
