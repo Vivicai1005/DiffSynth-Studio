@@ -200,6 +200,8 @@ class StepVideoPipeline(BasePipeline):
             # Scheduler
             latents = self.scheduler.step(noise_pred, self.scheduler.timesteps[progress_id], latents)
 
+        # Save latents
+        torch.save(latents, "latents.pt")
         # Decode
         self.load_models_to_device(['vae'])
         frames = self.vae.decode(latents, device=self.device, smooth_scale=smooth_scale, **tiler_kwargs)
