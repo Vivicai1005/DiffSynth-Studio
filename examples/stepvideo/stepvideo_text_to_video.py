@@ -8,7 +8,7 @@ import torch
 
 # Load the compiled attention for the LLM text encoder.
 # If you encounter errors here. Please select other compiled file that matches your environment or delete this line.
-torch.ops.load_library("models/stepfun-ai/stepvideo-t2v/lib/liboptimus_ths-torch2.5-cu124.cpython-310-x86_64-linux-gnu.so")
+torch.ops.load_library("/scratch1/models/stepvideo-t2v/lib/liboptimus_ths-torch2.5-cu124.cpython-310-x86_64-linux-gnu.so")
 
 # Load models
 model_manager = ModelManager()
