@@ -18,15 +18,15 @@ model_manager.load_models(
 )
 model_manager.load_models(
     [
-        "models/stepvideo-t2v/step_llm",
-        "models/stepvideo-t2v/vae/vae_v2.safetensors",
+        "/scratch1/models/stepvideo-t2v/step_llm",
+        "/scratch1/models/stepvideo-t2v/vae/vae_v2.safetensors",
         [
-            "models/stepvideo-t2v/transformer/diffusion_pytorch_model-00001-of-00006.safetensors",
-            "models/stepvideo-t2v/transformer/diffusion_pytorch_model-00002-of-00006.safetensors",
-            "models/stepvideo-t2v/transformer/diffusion_pytorch_model-00003-of-00006.safetensors",
-            "models/stepvideo-t2v/transformer/diffusion_pytorch_model-00004-of-00006.safetensors",
-            "models/stepvideo-t2v/transformer/diffusion_pytorch_model-00005-of-00006.safetensors",
-            "models/stepvideo-t2v/transformer/diffusion_pytorch_model-00006-of-00006.safetensors",
+            "/scratch1/models/stepvideo-t2v/transformer/diffusion_pytorch_model-00001-of-00006.safetensors",
+            "/scratch1/models/stepvideo-t2v/transformer/diffusion_pytorch_model-00002-of-00006.safetensors",
+            "/scratch1/models/stepvideo-t2v/transformer/diffusion_pytorch_model-00003-of-00006.safetensors",
+            "/scratch1/models/stepvideo-t2v/transformer/diffusion_pytorch_model-00004-of-00006.safetensors",
+            "/scratch1/models/stepvideo-t2v/transformer/diffusion_pytorch_model-00005-of-00006.safetensors",
+            "/scratch1/models/stepvideo-t2v/transformer/diffusion_pytorch_model-00006-of-00006.safetensors",
         ]
     ],
     torch_dtype=torch.bfloat16, device="cpu"
