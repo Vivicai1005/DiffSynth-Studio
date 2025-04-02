@@ -13,7 +13,7 @@ torch.ops.load_library("models/stepfun-ai/stepvideo-t2v/lib/liboptimus_ths-torch
 # Load models
 model_manager = ModelManager()
 model_manager.load_models(
-    ["models/stepvideo-t2v/hunyuan_clip/clip_text_encoder/pytorch_model.bin"],
+    ["/scratch1/models/stepvideo-t2v/hunyuan_clip/clip_text_encoder/pytorch_model.bin"],
     torch_dtype=torch.float32, device="cpu"
 )
 model_manager.load_models(
