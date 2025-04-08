@@ -4,7 +4,7 @@ from modelscope import snapshot_download
 
 
 # Download models
-snapshot_download("Wan-AI/Wan2.1-T2V-14B", local_dir="models/Wan-AI/Wan2.1-T2V-14B")
+# snapshot_download("Wan-AI/Wan2.1-T2V-14B", local_dir="models/Wan-AI/Wan2.1-T2V-14B")
 
 # Load models
 model_manager = ModelManager(device="cpu")
