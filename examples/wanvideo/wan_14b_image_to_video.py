@@ -38,7 +38,7 @@ pipe.enable_vram_management(num_persistent_param_in_dit=6*10**9) # You can set `
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/examples/wan/grey_shoe.png")
+image = Image.open("data/examples/wan/input_image.jpg")
 
 # Image-to-video
 video = pipe(

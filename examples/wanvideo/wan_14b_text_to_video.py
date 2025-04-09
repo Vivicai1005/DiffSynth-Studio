@@ -28,7 +28,7 @@ pipe.enable_vram_management(num_persistent_param_in_dit=None) # You can set `num
 
 # Text-to-video
 video = pipe(
-    prompt="A stylish Asian woman in her late 20s sits confidently at a sleek desk with a laptop in front of her. She wears a modern blazer and subtle makeup, with elegant earrings. She speaks directly to the camera with hand gestures, smiling and charismatic. The background is a trendy, softly lit lounge or home office, decorated with plants, warm lighting, and shelves. The video is shot in vertical format, with quick camera zoom-ins and a slightly dynamic angle to create TikTok-style energy. Text captions pop up on screen as she speaks key points. The lighting is bright and polished, with a soft filter that gives it a trendy social media feel.",
+    prompt="A black slip-on sneaker viewed from the rear, featuring a knitted fabric upper, a pull tab at the heel, and a thick, slightly shiny black rubber sole. The background is plain white, with a clean studio lighting setup and soft shadows. The shoe design is modern and minimalistic, emphasizing comfort and casual style.",
     negative_prompt="色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
     num_inference_steps=50,
     height=842,
