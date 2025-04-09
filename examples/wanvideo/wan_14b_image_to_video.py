@@ -5,7 +5,7 @@ from PIL import Image
 
 
 # Download models
-snapshot_download("Wan-AI/Wan2.1-I2V-14B-480P", local_dir="models/Wan-AI/Wan2.1-I2V-14B-480P")
+# snapshot_download("Wan-AI/Wan2.1-I2V-14B-480P", local_dir="models/Wan-AI/Wan2.1-I2V-14B-480P")
 
 # Load models
 model_manager = ModelManager(device="cpu")
@@ -33,11 +33,11 @@ pipe = WanVideoPipeline.from_model_manager(model_manager, torch_dtype=torch.bflo
 pipe.enable_vram_management(num_persistent_param_in_dit=6*10**9) # You can set `num_persistent_param_in_dit` to a small number to reduce VRAM required.
 
 # Download example image
-dataset_snapshot_download(
-    dataset_id="DiffSynth-Studio/examples_in_diffsynth",
-    local_dir="./",
-    allow_file_pattern=f"data/examples/wan/input_image.jpg"
-)
+# dataset_snapshot_download(
+#     dataset_id="DiffSynth-Studio/examples_in_diffsynth",
+#     local_dir="./",
+#     allow_file_pattern=f"data/examples/wan/input_image.jpg"
+# )
 image = Image.open("data/examples/wan/input_image.jpg")
 
 # Image-to-video
