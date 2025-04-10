@@ -45,8 +45,8 @@ video = pipe(
     prompt="Summer beach vacation style, a white cat wearing sunglasses sits on a surfboard. The fluffy-furred feline gazes directly at the camera with a relaxed expression. Blurred beach scenery forms the background featuring crystal-clear waters, distant green hills, and a blue sky dotted with white clouds. The cat assumes a naturally relaxed posture, as if savoring the sea breeze and warm sunlight. A close-up shot highlights the feline's intricate details and the refreshing atmosphere of the seaside.",
     negative_prompt="",
     input_image=image,
-    height=1280,
-    width=720,
+    height=832,
+    width=480,
     num_inference_steps=50,
     seed=0, tiled=True
 )
