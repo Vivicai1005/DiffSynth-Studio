@@ -28,7 +28,7 @@ pipe.enable_vram_management(num_persistent_param_in_dit=None) # You can set `num
 
 # Text-to-video
 video = pipe(
-    prompt="A black slip-on sneaker viewed from the rear, featuring a knitted fabric upper, a pull tab at the heel, and a thick, slightly shiny black rubber sole. The background is plain white, with a clean studio lighting setup and soft shadows. The shoe design is modern and minimalistic, emphasizing comfort and casual style.",
+    prompt="A professional and elegant East Asian woman in her late twenties to early thirties is hosting a talk show or giving a presentation in a luxurious, well-lit studio. She is seated at a round, black glass table with golden accents, with a sleek silver laptop open in front of her. She wears a pastel pink blazer over a mint green blouse, radiating warmth and confidence. The woman speaks with expressive hand gestures and a friendly smile, occasionally looking at the camera as if addressing the audience. The background features a stylish interior with soft lighting, wooden panels, bookshelves, and tasteful décor, creating a sophisticated atmosphere. Smooth camera movement captures her gestures and expressions, highlighting her professionalism and charm.",
     negative_prompt="",
     num_inference_steps=50,
     height=832,

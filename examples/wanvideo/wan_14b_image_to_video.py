@@ -47,7 +47,7 @@ video = pipe(
     input_image=image,
     height=832,
     width=480,
-    num_inference_steps=10,
+    num_inference_steps=50,
     seed=0, tiled=True
 )
 save_video(video, "video.mp4", fps=15, quality=5)
