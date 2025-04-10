@@ -38,11 +38,11 @@ pipe.enable_vram_management(num_persistent_param_in_dit=6*10**9) # You can set `
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/examples/wan/ficial_cleanser.png")
+image = Image.open("data/examples/wan/boot.png")
 
 # Image-to-video
 video = pipe(
-    prompt="A graceful female hand holds a sleek white cylindrical facial cleanser bottle with a matte finish. The scene begins with a medium close-up as the model presents the product to the camera. Soft, diffused lighting creates a luxurious and minimal atmosphere. As the camera slowly zooms in, the model gently rotates the bottle to showcase its clean design and bold \"FACIAL CLEANSER\" label. Her nails are perfectly manicured, adding elegance to the gesture. The background is softly blurred in neutral tones. The video ends with a close-up of the bottle, highlighting its minimalist branding and smooth texture.",
+    prompt="A stylish brown leather ankle boot is displayed in a minimalistic studio setting. The boot slowly rotates on a soft-matte white pedestal, revealing its almond-shaped toe, block heel, and smooth stitched leather texture. Subtle shadows shift across the surface under warm, diffused lighting, creating a luxurious and tactile visual experience. The background remains clean and softly blurred, allowing full focus on the elegant craftsmanship. The camera stays close, capturing the fine grain of the leather, the zipper detail at the back, and the gentle curve of the sole. ",
     negative_prompt="",
     input_image=image,
     height=832,
