@@ -28,7 +28,7 @@ pipe.enable_vram_management(num_persistent_param_in_dit=None) # You can set `num
 
 # Text-to-video
 video = pipe(
-    prompt="A professional and elegant East Asian woman in her late twenties to early thirties is hosting a talk show or giving a presentation in a luxurious, well-lit studio. She is seated at a round, black glass table with golden accents, with a sleek silver laptop open in front of her. She wears a pastel pink blazer over a mint green blouse, radiating warmth and confidence. The woman speaks with expressive hand gestures and a friendly smile, occasionally looking at the camera as if addressing the audience. The background features a stylish interior with soft lighting, wooden panels, bookshelves, and tasteful décor, creating a sophisticated atmosphere. Smooth camera movement captures her gestures and expressions, highlighting her professionalism and charm.",
+    prompt="A stylish East Asian woman in her late twenties to early thirties, seated very close to the camera in a cozy and elegant indoor setting. She wears a pastel pink blazer over a mint green blouse, with simple earrings and natural makeup. Speaking directly to the camera, she uses friendly and expressive gestures, like she’s giving life tips or career advice to her audience. Her tone is warm, confident, and engaging. The camera slightly moves or zooms for a dynamic feel, and the soft background lighting adds a premium, lifestyle vibe. Subtle on-screen captions appear as she speaks, and upbeat, non-distracting background music plays throughout.",
     negative_prompt="",
     num_inference_steps=50,
     height=832,
