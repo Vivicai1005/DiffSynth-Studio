@@ -31,8 +31,6 @@ video = pipe(
     prompt="A stylish East Asian woman in her late twenties to early thirties, seated very close to the camera in a cozy and elegant indoor setting. She wears a pastel pink blazer over a mint green blouse, with simple earrings and natural makeup. Speaking directly to the camera, she uses friendly and expressive gestures, like she’s giving life tips or career advice to her audience. Her tone is warm, confident, and engaging. The camera slightly moves or zooms for a dynamic feel, and the soft background lighting adds a premium, lifestyle vibe. Subtle on-screen captions appear as she speaks, and upbeat, non-distracting background music plays throughout.",
     negative_prompt="",
     num_inference_steps=50,
-    height=832,
-    width=480,
     seed=0, tiled=True
 )
 save_video(video, "video1.mp4", fps=25, quality=5)
