@@ -38,16 +38,16 @@ pipe.enable_vram_management(num_persistent_param_in_dit=6*10**9) # You can set `
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/examples/wan/i2v_input.JPG")
+image = Image.open("data/examples/wan/ficial_cleanser.png")
 
 # Image-to-video
 video = pipe(
-    prompt="Summer beach vacation style, a white cat wearing sunglasses sits on a surfboard. The fluffy-furred feline gazes directly at the camera with a relaxed expression. Blurred beach scenery forms the background featuring crystal-clear waters, distant green hills, and a blue sky dotted with white clouds. The cat assumes a naturally relaxed posture, as if savoring the sea breeze and warm sunlight. A close-up shot highlights the feline's intricate details and the refreshing atmosphere of the seaside.",
+    prompt="A graceful female hand holds a sleek white cylindrical facial cleanser bottle with a matte finish. The scene begins with a medium close-up as the model presents the product to the camera. Soft, diffused lighting creates a luxurious and minimal atmosphere. As the camera slowly zooms in, the model gently rotates the bottle to showcase its clean design and bold \"FACIAL CLEANSER\" label. Her nails are perfectly manicured, adding elegance to the gesture. The background is softly blurred in neutral tones. The video ends with a close-up of the bottle, highlighting its minimalist branding and smooth texture.",
     negative_prompt="",
     input_image=image,
     height=832,
     width=480,
-    num_inference_steps=50,
+    num_inference_steps=10,
     seed=0, tiled=True
 )
 save_video(video, "video.mp4", fps=15, quality=5)
