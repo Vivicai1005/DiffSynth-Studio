@@ -54,7 +54,6 @@ video = pipe(
     num_inference_steps=50,
     height=1280,
     width=720,
-    num_frames=226,
     seed=0, tiled=True
 )
 if dist.get_rank() == 0:
