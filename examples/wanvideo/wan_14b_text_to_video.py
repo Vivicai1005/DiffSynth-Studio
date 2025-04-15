@@ -35,4 +35,4 @@ video = pipe(
     width=480,
     seed=0, tiled=True
 )
-save_video(video, "video1.mp4", fps=25, quality=5)
+save_video(video, "video1.mp4", fps=25, quality=9)
