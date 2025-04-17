@@ -50,7 +50,7 @@ pipe.enable_vram_management(num_persistent_param_in_dit=None) # You can set `num
 # Text-to-video
 video = pipe(
     #prompt="A stunningly beautiful and charming East Asian woman in her late twenties to early thirties is hosting a talk show or delivering a presentation in a luxurious, well-lit studio. She has flawless, radiant skin, soft features, and expressive, sparkling eyes that convey warmth and intelligence. Her long, silky hair is elegantly styled, complementing her graceful appearance. Seated at a round, black glass table with golden accents, she has a sleek silver laptop open in front of her. She wears a pastel pink tailored blazer over a mint green silk blouse, perfectly blending professional elegance with a soft, approachable charm. Her friendly smile, gentle voice, and animated hand gestures make her presence both captivating and adorable. The background features a tastefully designed interior with warm ambient lighting, wooden panels, neatly arranged bookshelves, and minimalist décor, creating a cozy yet sophisticated atmosphere. Smooth camera movement captures her every expression and gesture, highlighting her beauty, charisma, and confident professionalism.",
-    prompt="A casual, everyday photo—candid, possibly taken secretly or spontaneously, without artistic posing, without perfect composition, and with no filters. The lighting is natural, and the overall feel is natural. The subject is a 21-year-old woman of European descent, fair-skinned with blonde hair and blue eyes, and she is quite attractive. She’s wearing a woolen dress with a small microphone pinned to it—perhaps she’s being interviewed? The setting is indoors, her hands aren’t visible in the frame, and she is looking at the viewer. It’s a half-length shot, taken in a casual, everyday manner.",
+    prompt="A beautiful woman, aged between 25 and 35, is dressed in a professional yet chic outfit, emphasizing her intellectual character. She exudes a sense of sophistication and confidence. The spring and autumn seasons are reflected in her attire, which could be a stylish blazer paired with a fashionable blouse, marking her as a host. She is captured in an outdoor setting on a high-end street, possibly lined with upscale boutiques or cafes. Despite being outside, she maintains a professional demeanor, possibly speaking into a microphone or engaging with an unseen audience, showing her poise and eloquence as a host.",
     negative_prompt="色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
     num_inference_steps=50,
     height=832,
@@ -59,4 +59,4 @@ video = pipe(
     seed=0, tiled=True
 )
 if dist.get_rank() == 0:
-    save_video(video, "mi300_lady9_10s.mp4", fps=25, quality=9)
+    save_video(video, "mi300_lady2_10s.mp4", fps=25, quality=9)
