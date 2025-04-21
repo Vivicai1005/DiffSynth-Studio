@@ -15,7 +15,6 @@ import torch, math
 from torch import nn
 from einops import rearrange, repeat
 from tqdm import tqdm
-from diffsynth.models.utils import func_timer_decorator
 
 
 class RMSNorm(nn.Module):
@@ -675,7 +674,6 @@ class StepVideoTransformerBlock(nn.Module):
         self.scale_shift_table = nn.Parameter(torch.randn(6, dim) /dim**0.5)
 
     @torch.no_grad()
-    @func_timer_decorator
     def forward(
         self,
         q: torch.Tensor,
@@ -823,8 +821,7 @@ class StepVideoModel(torch.nn.Module):
         for i, kv_len in enumerate(kv_seqlens):
             mask[i, :, :kv_len] = 1
         return encoder_hidden_states, mask
-        
-    @func_timer_decorator
+
     def block_forward(
         self,
         hidden_states,
