@@ -51,4 +51,4 @@ video = pipe(
     num_inference_steps=50,
     seed=0, tiled=True
 )
-save_video(video, "mi300_wan14_i2v_lady.mp4", fps=15, quality=9)
+save_video(video, "mi300_wan14_i2v_480p_lady.mp4", fps=15, quality=9)
