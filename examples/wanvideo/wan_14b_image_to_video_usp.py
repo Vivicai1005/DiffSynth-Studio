@@ -36,7 +36,7 @@ model_manager.load_models(
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/examples/wan/lady.png")
+image = Image.open("data/examples/wan/lady_last_frame.png")
 
 dist.init_process_group(
     backend="nccl",
@@ -69,8 +69,7 @@ video = pipe(
     height=1024,
     width=680,
     num_inference_steps=50,
-    num_frames=151,
     seed=0, tiled=True
 )
 if dist.get_rank() == 0:
-    save_video(video, "mi300_wan14_s4_i2v_720p_lady.mp4", fps=15, quality=9)
+    save_video(video, "mi300_wan14_i2v_720p_lady.mp4", fps=15, quality=9)
