@@ -5,7 +5,7 @@ from PIL import Image
 
 
 # Download models
-snapshot_download("Wan-AI/Wan2.1-FLF2V-14B-720P", local_dir="models/Wan-AI/Wan2.1-FLF2V-14B-720P")
+# snapshot_download("Wan-AI/Wan2.1-FLF2V-14B-720P", local_dir="models/Wan-AI/Wan2.1-FLF2V-14B-720P")
 
 # Load models
 model_manager = ModelManager(device="cpu")
