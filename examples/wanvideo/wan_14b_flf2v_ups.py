@@ -70,4 +70,4 @@ video = pipe(
     seed=1, tiled=True
 )
 if dist.get_rank() == 0:
-    save_video(video, "video.mp4", fps=15, quality=5)
+    save_video(video, "mi300_wan14_s4_flf2v_lady.mp4", fps=15, quality=5)
