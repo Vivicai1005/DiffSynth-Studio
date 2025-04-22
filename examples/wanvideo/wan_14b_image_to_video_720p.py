@@ -49,6 +49,7 @@ video = pipe(
     height=1280,
     width=720,
     num_inference_steps=50,
+    num_frames=151,
     seed=0, tiled=True
 )
 save_video(video, "mi300_wan14_i2v_720p_lady.mp4", fps=15, quality=9)
