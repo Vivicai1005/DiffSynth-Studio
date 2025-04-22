@@ -6,7 +6,7 @@ import torch.distributed as dist
 
 
 # Download models
-snapshot_download("Wan-AI/Wan2.1-I2V-14B-480P", local_dir="models/Wan-AI/Wan2.1-I2V-14B-480P")
+#snapshot_download("Wan-AI/Wan2.1-I2V-14B-480P", local_dir="models/Wan-AI/Wan2.1-I2V-14B-480P")
 
 # Load models
 model_manager = ModelManager(device="cpu")
@@ -30,9 +30,6 @@ model_manager.load_models(
     ],
     torch_dtype=torch.bfloat16, # You can set `torch_dtype=torch.float8_e4m3fn` to enable FP8 quantization.
 )
-pipe = WanVideoPipeline.from_model_manager(model_manager, torch_dtype=torch.bfloat16, device="cuda")
-pipe.enable_vram_management(num_persistent_param_in_dit=6*10**9) # You can set `num_persistent_param_in_dit` to a small number to reduce VRAM required.
-
 # Download example image
 # dataset_snapshot_download(
 #     dataset_id="DiffSynth-Studio/examples_in_diffsynth",
@@ -40,6 +37,28 @@ pipe.enable_vram_management(num_persistent_param_in_dit=6*10**9) # You can set `
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
 image = Image.open("data/examples/wan/lady.png")
+
+dist.init_process_group(
+    backend="nccl",
+    init_method="env://",
+)
+from xfuser.core.distributed import (initialize_model_parallel,
+                                     init_distributed_environment)
+init_distributed_environment(
+    rank=dist.get_rank(), world_size=dist.get_world_size())
+
+initialize_model_parallel(
+    sequence_parallel_degree=dist.get_world_size(),
+    ring_degree=1,
+    ulysses_degree=dist.get_world_size(),
+)
+torch.cuda.set_device(dist.get_rank())
+
+pipe = WanVideoPipeline.from_model_manager(model_manager,
+                                           torch_dtype=torch.bfloat16,
+                                           device=f"cuda:{dist.get_rank()}",
+                                           use_usp=True if dist.get_world_size() > 1 else False)
+pipe.enable_vram_management(num_persistent_param_in_dit=None) # You can set `num_persistent_param_in_dit` to a small number to reduce VRAM required.
 
 # Image-to-video
 video = pipe(
@@ -52,4 +71,5 @@ video = pipe(
     num_inference_steps=50,
     seed=0, tiled=True
 )
-save_video(video, "video.mp4", fps=15, quality=9)
+if dist.get_rank() == 0:
+    save_video(video, "video.mp4", fps=15, quality=9)
