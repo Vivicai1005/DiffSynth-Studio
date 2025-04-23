@@ -36,7 +36,7 @@ model_manager.load_models(
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/examples/wan/lady_last_frame.png")
+image = Image.open("data/examples/wan/lady2.png")
 
 dist.init_process_group(
     backend="nccl",
@@ -62,8 +62,8 @@ pipe.enable_vram_management(num_persistent_param_in_dit=None) # You can set `num
 
 # Image-to-video
 video = pipe(
-    #prompt="A stylish brown leather ankle boot is displayed in a minimalistic studio setting. The boot slowly rotates on a soft-matte white pedestal, revealing its almond-shaped toe, block heel, and smooth stitched leather texture. Subtle shadows shift across the surface under warm, diffused lighting, creating a luxurious and tactile visual experience. The background remains clean and softly blurred, allowing full focus on the elegant craftsmanship. The camera stays close, capturing the fine grain of the leather, the zipper detail at the back, and the gentle curve of the sole. ",
-    prompt="A stunningly beautiful and charming East Asian woman in her late twenties to early thirties is hosting a talk show or delivering a presentation in a luxurious, well-lit studio. She has flawless, radiant skin, soft features, and expressive, sparkling eyes that convey warmth and intelligence. Her long, silky hair is elegantly styled, complementing her graceful appearance. Seated at a round, black glass table with golden accents, she has a sleek silver laptop open in front of her. She wears a pastel pink tailored blazer over a mint green silk blouse, perfectly blending professional elegance with a soft, approachable charm. Her friendly smile, gentle voice, and animated hand gestures make her presence both captivating and adorable. The background features a tastefully designed interior with warm ambient lighting, wooden panels, neatly arranged bookshelves, and minimalist décor, creating a cozy yet sophisticated atmosphere. Smooth camera movement captures her every expression and gesture, highlighting her beauty, charisma, and confident professionalism.",
+    #prompt="A stunningly beautiful and charming East Asian woman in her late twenties to early thirties is hosting a talk show or delivering a presentation in a luxurious, well-lit studio. She has flawless, radiant skin, soft features, and expressive, sparkling eyes that convey warmth and intelligence. Her long, silky hair is elegantly styled, complementing her graceful appearance. Seated at a round, black glass table with golden accents, she has a sleek silver laptop open in front of her. She wears a pastel pink tailored blazer over a mint green silk blouse, perfectly blending professional elegance with a soft, approachable charm. Her friendly smile, gentle voice, and animated hand gestures make her presence both captivating and adorable. The background features a tastefully designed interior with warm ambient lighting, wooden panels, neatly arranged bookshelves, and minimalist décor, creating a cozy yet sophisticated atmosphere. Smooth camera movement captures her every expression and gesture, highlighting her beauty, charisma, and confident professionalism.",
+    prompt="A candid, realistic video capturing a 21-year-old woman of European descent with fair skin, long blonde hair, and bright blue eyes. She is stunningly attractive, with youthful, delicate facial features and a warm, approachable expression. The woman is seated indoors in a cozy, well-lit room with soft, natural daylight filtering through a nearby window. She’s dressed in a simple, elegant woolen dress with a small microphone clipped to it, suggesting she’s participating in a casual interview or conversation.",
     negative_prompt="色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
     input_image=image,
     height=1024,
@@ -72,4 +72,4 @@ video = pipe(
     seed=0, tiled=True
 )
 if dist.get_rank() == 0:
-    save_video(video, "mi300_wan14_i2v_720p_lady.mp4", fps=15, quality=9)
+    save_video(video, "mi300_wan14_i2v_720p_lady2.mp4", fps=15, quality=9)
