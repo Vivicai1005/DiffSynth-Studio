@@ -36,7 +36,7 @@ model_manager.load_models(
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/examples/wan/lady2.jpg")
+image = Image.open("data/examples/wan/lady2.png")
 
 dist.init_process_group(
     backend="nccl",
