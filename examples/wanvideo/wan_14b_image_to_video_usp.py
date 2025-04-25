@@ -36,7 +36,7 @@ model_manager.load_models(
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/examples/wan/lady2_last_frame.jpg")
+image = Image.open("data/examples/wan/lady2.jpg")
 
 dist.init_process_group(
     backend="nccl",
@@ -64,7 +64,7 @@ pipe.enable_vram_management(num_persistent_param_in_dit=None) # You can set `num
 video = pipe(
     #prompt="A stunningly beautiful and charming East Asian woman in her late twenties to early thirties is hosting a talk show or delivering a presentation in a luxurious, well-lit studio. She has flawless, radiant skin, soft features, and expressive, sparkling eyes that convey warmth and intelligence. Her long, silky hair is elegantly styled, complementing her graceful appearance. Seated at a round, black glass table with golden accents, she has a sleek silver laptop open in front of her. She wears a pastel pink tailored blazer over a mint green silk blouse, perfectly blending professional elegance with a soft, approachable charm. Her friendly smile, gentle voice, and animated hand gestures make her presence both captivating and adorable. The background features a tastefully designed interior with warm ambient lighting, wooden panels, neatly arranged bookshelves, and minimalist décor, creating a cozy yet sophisticated atmosphere. Smooth camera movement captures her every expression and gesture, highlighting her beauty, charisma, and confident professionalism.",
     #prompt="A candid, realistic video capturing a 21-year-old woman of European descent with fair skin, long blonde hair, and bright blue eyes. She is stunningly attractive, with youthful, delicate facial features and a warm, approachable expression. The woman is seated indoors in a cozy, well-lit room with soft, natural daylight filtering through a nearby window. She’s dressed in a simple, elegant woolen dress with a small microphone clipped to it, suggesting she’s participating in a casual interview or conversation.",
-    prompt="A candid, realistic video continuing to capture the 21-year-old woman of European descent with fair skin, long blonde hair, and bright blue eyes. The cozy, well-lit room with soft natural daylight streaming through the window remains unchanged, as she stays seated in her simple, elegant woolen dress with a small microphone clipped to it. This time, her expression shifts from warm and approachable to one of calm determination and quiet confidence. Her bright blue eyes now reflect focus and resolve, as if she’s thoughtfully addressing an important point during the casual interview or conversation. Her posture becomes more upright and composed, with subtle but purposeful hand gestures emphasizing her words. The natural lighting softly highlights her delicate features, while the camera captures the intensity and sincerity in her gaze, portraying a sense of inner strength and conviction.",
+    prompt="A candid, realistic video capturing a 21-year-old woman of European descent with fair skin, long blonde hair, and bright blue eyes. She remains seated indoors in the same cozy, well-lit room with soft, natural daylight filtering through a nearby window. Dressed in the same simple, elegant woolen dress with a small microphone clipped to it, she now gazes directly into the camera with a confident and determined expression. Her bright blue eyes are steady and focused, conveying self-assurance and clarity. She maintains minimal blinking, emphasizing her strong presence. The overall atmosphere continues to feel warm and approachable, but her poised demeanor suggests she is delivering an important message or making a firm statement during the casual interview or conversation.",
     negative_prompt="色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
     input_image=image,
     height=1024,
@@ -73,4 +73,4 @@ video = pipe(
     seed=0, tiled=True
 )
 if dist.get_rank() == 0:
-    save_video(video, "mi300_wan14_i2v_720p_lady2.mp4", fps=15, quality=9)
+    save_video(video, "mi300_wan14_i2v_720p_lady2_1.mp4", fps=15, quality=9)
