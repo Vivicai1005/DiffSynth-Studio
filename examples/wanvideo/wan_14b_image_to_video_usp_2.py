@@ -37,7 +37,7 @@ model_manager.load_models(
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
 image = Image.open("data/dr_su.png")
-height = 768
+height = 688
 width = 1024
 image = image.resize((width, height))
 
