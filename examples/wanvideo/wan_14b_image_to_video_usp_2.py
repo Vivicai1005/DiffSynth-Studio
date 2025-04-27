@@ -36,10 +36,7 @@ model_manager.load_models(
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/dr_su.png")
-height = 688
-width = 1024
-image = image.resize((width, height))
+image = Image.open("data/dr_su_2.png")
 
 dist.init_process_group(
     backend="nccl",
@@ -68,8 +65,8 @@ video = pipe(
     prompt="A realistic, high-resolution video capturing a distinguished East Asian woman in her early fifties, standing confidently on a modern stage with a dark, textured backdrop. She has short, neatly styled gray hair, wears elegant glasses, and is dressed in a minimalist dark blue stand-collar jacket over a black blouse. A discreet headset microphone is positioned near her cheek, and she holds a sleek presentation remote in one hand. Her facial expression is focused and expressive as she clearly articulates a key point about the transformative role of education in technological advancement. She uses precise, minimal hand gestures — one hand subtly emphasizing her words while the other holds the remote. The stage lighting softly highlights her professional presence, while the steady medium shot frames her upper body, creating an atmosphere of authority and clarity, engaging the audience with her insightful message.",
     negative_prompt="色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
     input_image=image,
-    height=height,
-    width=width,
+    height=760,
+    width=1024,
     num_inference_steps=50,
     seed=1, tiled=True
 )
