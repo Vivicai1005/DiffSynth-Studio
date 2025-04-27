@@ -36,7 +36,7 @@ model_manager.load_models(
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/examples/wan/dr_su_2.png")
+image = Image.open("data/examples/wan/dr_su2.png")
 
 dist.init_process_group(
     backend="nccl",
@@ -71,4 +71,4 @@ video = pipe(
     seed=1, tiled=True
 )
 if dist.get_rank() == 0:
-    save_video(video, "mi300_wan14_i2v_720p_dr_su2_1.mp4", fps=15, quality=9)
+    save_video(video, "wan14_i2v_720p_dr_su2_1.mp4", fps=15, quality=9)
