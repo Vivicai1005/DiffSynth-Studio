@@ -36,7 +36,7 @@ model_manager.load_models(
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/examples/wan/dr_su.png")
+image = Image.open("data/examples/wan/dr_su_2.png")
 
 dist.init_process_group(
     backend="nccl",
@@ -62,7 +62,7 @@ pipe.enable_vram_management(num_persistent_param_in_dit=None) # You can set `num
 
 # Image-to-video
 video = pipe(
-    prompt="A realistic, high-resolution video capturing a distinguished East Asian woman in her early fifties, standing confidently on stage against a minimalist dark backdrop. She has neatly styled short gray hair, elegant glasses, and is dressed in a tailored navy blazer over a black blouse, wearing a simple necklace. A discreet headset microphone rests comfortably on her cheek, indicating she is delivering a keynote speech. Her facial expression is calm, natural, and engaging, with a gentle smile and attentive eyes that convey warmth, intelligence, and confidence. Her hand gestures are smooth, relaxed, and expressive — naturally complementing her speech without exaggeration, reflecting openness and sincerity. The stage lighting softly highlights her features, creating a professional yet approachable atmosphere. The camera captures a steady medium shot, focusing on her fluid movements and authentic presence, making her connection with the audience feel genuine and effortless.",
+    prompt="A realistic, high-resolution video capturing a distinguished East Asian woman in her early fifties, standing confidently on a modern stage with a dark, textured backdrop. She has short, neatly styled gray hair, elegant glasses, and is dressed in a minimalist dark blue stand-collar jacket over a black blouse. A discreet headset microphone is positioned near her cheek, and she holds a sleek presentation remote in one hand. Her facial expression is natural, engaging, and thoughtful, with a slight smile and bright eyes conveying warmth and intelligence as she speaks about the future of education. Her hand gestures are smooth and subtle, complementing her words with relaxed, expressive movements that feel effortless and genuine. The soft stage lighting highlights her calm demeanor against the sophisticated background. The camera frames her in a steady medium shot, emphasizing her approachable yet professional presence as she inspires the audience with her vision for educational growth.",
     negative_prompt="色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
     input_image=image,
     height=760,
@@ -71,4 +71,4 @@ video = pipe(
     seed=1, tiled=True
 )
 if dist.get_rank() == 0:
-    save_video(video, "mi300_wan14_i2v_720p_dr_su_1.mp4", fps=15, quality=9)
+    save_video(video, "mi300_wan14_i2v_720p_dr_su2_1.mp4", fps=15, quality=9)
