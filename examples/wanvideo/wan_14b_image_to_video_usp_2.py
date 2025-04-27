@@ -36,7 +36,7 @@ model_manager.load_models(
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/examples/wan/dr_su.png")
+image = Image.open("data/examples/wan/dr_su_last_frame.png")
 
 dist.init_process_group(
     backend="nccl",
@@ -62,7 +62,8 @@ pipe.enable_vram_management(num_persistent_param_in_dit=None) # You can set `num
 
 # Image-to-video
 video = pipe(
-    prompt="A realistic, professional video capturing a distinguished East Asian woman in her early fifties, with neatly styled short gray hair and elegant glasses. She is dressed in a dark grey tailored suit with a subtle pin on the lapel and a simple necklace, holding a few neatly organized documents in her hand. The setting is a modern corporate studio with a large screen behind her displaying part of a bold \"AMD\" logo, complemented by a textured wall and soft, neutral lighting that creates a calm and professional atmosphere. The woman has a warm, approachable smile and a gentle, engaging expression as she speaks thoughtfully about the value of education. Her bright, intelligent eyes convey wisdom and encouragement. She uses open, welcoming hand gestures, making her message feel inspiring and accessible. The camera captures her upper body in a steady frame, highlighting her poised demeanor and the sincerity in her voice, emphasizing her passion for empowering others through education.",
+    #prompt="A realistic, professional video capturing a distinguished East Asian woman in her early fifties, with neatly styled short gray hair and elegant glasses. She is dressed in a dark grey tailored suit with a subtle pin on the lapel and a simple necklace, holding a few neatly organized documents in her hand. The setting is a modern corporate studio with a large screen behind her displaying part of a bold \"AMD\" logo, complemented by a textured wall and soft, neutral lighting that creates a calm and professional atmosphere. The woman has a warm, approachable smile and a gentle, engaging expression as she speaks thoughtfully about the value of education. Her bright, intelligent eyes convey wisdom and encouragement. She uses open, welcoming hand gestures, making her message feel inspiring and accessible. The camera captures her upper body in a steady frame, highlighting her poised demeanor and the sincerity in her voice, emphasizing her passion for empowering others through education.",
+    prompt="The scene continues seamlessly in the same professional studio setting, with the distinguished East Asian woman seated against the backdrop of the corporate logo and softly lit textured wall. This time, her expression shifts to one of firm determination and confident authority. Her intelligent eyes now convey a strong sense of purpose and resolve as she addresses the audience directly about taking actionable steps to improve education systems. Her posture is upright and commanding, with precise, purposeful hand gestures that underscore key points. The camera subtly pushes in to highlight the intensity of her gaze and the conviction in her voice. The overall mood emphasizes leadership, clarity, and a call to action, portraying her as a visionary figure committed to driving meaningful change in education.",
     negative_prompt="色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
     input_image=image,
     height=760,
