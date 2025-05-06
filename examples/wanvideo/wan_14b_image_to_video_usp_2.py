@@ -69,7 +69,7 @@ video = pipe(
     height=672,
     width=1024,
     num_inference_steps=50,
-    seed=2, tiled=True
+    seed=0, tiled=True
 )
 if dist.get_rank() == 0:
     save_video(video, "wan14_i2v_720p_dr_su3_2.mp4", fps=15, quality=9)
