@@ -36,7 +36,7 @@ model_manager.load_models(
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/man1_last_frame.png")
+image = Image.open("data/ghibli_dr_su.png")
 
 dist.init_process_group(
     backend="nccl",
@@ -66,13 +66,14 @@ video = pipe(
     #prompt="A candid, realistic video capturing a 21-year-old woman of European descent with fair skin, long blonde hair, and bright blue eyes. She is stunningly attractive, with youthful, delicate facial features and a warm, approachable expression. The woman is seated indoors in a cozy, well-lit room with soft, natural daylight filtering through a nearby window. She’s dressed in a simple, elegant woolen dress with a small microphone clipped to it, suggesting she’s participating in a casual interview or conversation. Throughout the shot, she maintains steady eye contact with the camera, offering a gentle, welcoming smile. Her bright blue eyes convey warmth and friendliness, and she occasionally gives subtle nods, creating an engaging and intimate connection with the viewer. The atmosphere feels relaxed, authentic, and inviting.",
     #prompt="A seamless continuation in the same cozy, well-lit room with the 21-year-old woman of European descent. Maintaining her elegant appearance with fair skin, long blonde hair, and bright blue eyes, she begins to speak confidently while keeping steady eye contact with the camera. Her expression shifts to one of thoughtful focus and quiet determination, with a subtle, confident smile. She occasionally uses natural hand gestures to emphasize her points, her posture upright yet relaxed. The soft daylight continues to illuminate her delicate features, enhancing the candid and professional atmosphere. Her demeanor conveys intelligence, confidence, and approachability, as if she is directly addressing the viewer in a personal and engaging conversation.",
     #prompt="A young man aged 25 to 35 is sitting comfortably in a cozy, minimalist living room with soft natural light. He is dressed in a light sweater and casual pants, suitable for spring or autumn. Sitting at a wooden desk with a sleek laptop in front of him, he looks at the camera with a relaxed and friendly smile. His hands rest naturally on the desk, occasionally making simple, smooth gestures as he speaks—such as lightly moving one hand to emphasize a point. The background features modern furniture, a cozy sofa, a floor lamp, and a few decorative plants, creating a warm and inviting atmosphere.",
-    prompt="The young man continues live-streaming in the same cozy, minimalist living room. He sits upright with a confident and composed posture, looking directly into the camera with a steady, determined, and self-assured gaze. His expression is calm and approachable, with a slight confident smile that conveys professionalism and ease. His hands remain relaxed, resting on the desk or making occasional simple and natural gestures—such as a slight movement of one hand to emphasize a point without exaggeration. The warm ambient lighting, modern furniture, and subtle personal decorations like a bookshelf and a framed artwork in the background enhance the comfortable yet focused atmosphere.",
+    #prompt="The young man continues live-streaming in the same cozy, minimalist living room. He sits upright with a confident and composed posture, looking directly into the camera with a steady, determined, and self-assured gaze. His expression is calm and approachable, with a slight confident smile that conveys professionalism and ease. His hands remain relaxed, resting on the desk or making occasional simple and natural gestures—such as a slight movement of one hand to emphasize a point without exaggeration. The warm ambient lighting, modern furniture, and subtle personal decorations like a bookshelf and a framed artwork in the background enhance the comfortable yet focused atmosphere.",
+    prompt="A warm, hand-drawn animation scene in the style of Studio Ghibli, depicting a graceful East Asian woman in her early fifties standing on a softly lit stage with a deep navy, minimalist background. She has short, silvery-gray hair and wears rounded glasses, a dark blue blazer over a simple black top, and a delicate necklace with a small gemstone. A small headset microphone rests gently by her cheek. Her expression is serene and intelligent, with a gentle smile and kind eyes that sparkle with thoughtfulness. Her gestures are natural and understated—one hand slightly open in mid-motion, the other loosely holding a presentation remote. The overall color palette is warm and earthy, with soft lighting and subtle shading that evoke a calm, inspiring atmosphere. The animation captures her in a mid-shot, conveying wisdom, empathy, and a deep passion for education in a way that feels both magical and grounded.",
     negative_prompt="色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
     input_image=image,
     height=1024,
-    width=688,
+    width=1024,
     num_inference_steps=50,
     seed=0, tiled=True
 )
 if dist.get_rank() == 0:
-    save_video(video, "wan14_i2v_720p_man1_2.mp4", fps=15, quality=9)
+    save_video(video, "wan14_i2v_ghibli_dr_su_1.mp4", fps=15, quality=9)
