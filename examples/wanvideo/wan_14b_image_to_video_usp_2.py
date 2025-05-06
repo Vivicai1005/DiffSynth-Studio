@@ -36,7 +36,7 @@ model_manager.load_models(
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/dr_su3.png")
+image = Image.open("data/dr_su3_last_frame.png")
 
 dist.init_process_group(
     backend="nccl",
@@ -62,8 +62,8 @@ pipe.enable_vram_management(num_persistent_param_in_dit=None) # You can set `num
 
 # Image-to-video
 video = pipe(
-    prompt="A realistic, professional video capturing a distinguished East Asian woman in her early fifties, standing confidently on a stage with a minimalist dark backdrop. She has neatly styled short gray hair, wears elegant glasses, and is dressed in a dark navy suit with a simple necklace. A discreet headset microphone wraps around her ear, indicating she is delivering a keynote speech or important presentation. The woman has a calm, confident smile and a thoughtful, engaging expression as she speaks about the transformative power of education. Her hands are raised in open, expressive gestures, emphasizing inclusivity and inspiration. The soft stage lighting highlights her poised demeanor against the clean, dark background, creating a focused, professional atmosphere. The camera captures a medium shot, framing her upper body and allowing viewers to feel connected to her message of empowerment through learning.",
-    #prompt="The video continues seamlessly on the same stage with the distinguished East Asian woman standing tall against the minimalist dark backdrop. Her expression shifts from thoughtful engagement to one of firm determination and visionary leadership. Her intelligent eyes reflect resolve and a clear call to action as she speaks passionately about the urgent need for innovation and equity in education. She holds a presentation remote confidently in one hand, while using precise and assertive gestures with the other to drive her points home. The camera slowly pushes in to emphasize the intensity of her gaze and the conviction in her voice. The stage lighting subtly sharpens, highlighting her presence as a leader inspiring change. The overall mood conveys authority, clarity, and an inspiring commitment to shaping the future of education.",
+    #prompt="A realistic, professional video capturing a distinguished East Asian woman in her early fifties, standing confidently on a stage with a minimalist dark backdrop. She has neatly styled short gray hair, wears elegant glasses, and is dressed in a dark navy suit with a simple necklace. A discreet headset microphone wraps around her ear, indicating she is delivering a keynote speech or important presentation. The woman has a calm, confident smile and a thoughtful, engaging expression as she speaks about the transformative power of education. Her hands are raised in open, expressive gestures, emphasizing inclusivity and inspiration. The soft stage lighting highlights her poised demeanor against the clean, dark background, creating a focused, professional atmosphere. The camera captures a medium shot, framing her upper body and allowing viewers to feel connected to her message of empowerment through learning.",
+    prompt="The video continues seamlessly on the same stage with the distinguished East Asian woman standing tall against the minimalist dark backdrop. Her expression shifts from thoughtful engagement to one of firm determination and visionary leadership. Her intelligent eyes reflect resolve and a clear call to action as she speaks passionately about the urgent need for innovation and equity in education. She holds a presentation remote confidently in one hand, while using precise and assertive gestures with the other to drive her points home. The camera slowly pushes in to emphasize the intensity of her gaze and the conviction in her voice. The stage lighting subtly sharpens, highlighting her presence as a leader inspiring change. The overall mood conveys authority, clarity, and an inspiring commitment to shaping the future of education.",
     negative_prompt="色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
     input_image=image,
     height=672,
@@ -72,4 +72,4 @@ video = pipe(
     seed=1, tiled=True
 )
 if dist.get_rank() == 0:
-    save_video(video, "wan14_i2v_720p_dr_su3_1.mp4", fps=15, quality=9)
+    save_video(video, "wan14_i2v_720p_dr_su3_2.mp4", fps=15, quality=9)
