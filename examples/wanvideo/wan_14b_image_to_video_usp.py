@@ -36,7 +36,7 @@ model_manager.load_models(
 #     local_dir="./",
 #     allow_file_pattern=f"data/examples/wan/input_image.jpg"
 # )
-image = Image.open("data/ghibli_dr_su_last_frame.png")
+image = Image.open("data/w.jpg")
 
 dist.init_process_group(
     backend="nccl",
@@ -68,13 +68,14 @@ video = pipe(
     #prompt="A young man aged 25 to 35 is sitting comfortably in a cozy, minimalist living room with soft natural light. He is dressed in a light sweater and casual pants, suitable for spring or autumn. Sitting at a wooden desk with a sleek laptop in front of him, he looks at the camera with a relaxed and friendly smile. His hands rest naturally on the desk, occasionally making simple, smooth gestures as he speaks—such as lightly moving one hand to emphasize a point. The background features modern furniture, a cozy sofa, a floor lamp, and a few decorative plants, creating a warm and inviting atmosphere.",
     #prompt="The young man continues live-streaming in the same cozy, minimalist living room. He sits upright with a confident and composed posture, looking directly into the camera with a steady, determined, and self-assured gaze. His expression is calm and approachable, with a slight confident smile that conveys professionalism and ease. His hands remain relaxed, resting on the desk or making occasional simple and natural gestures—such as a slight movement of one hand to emphasize a point without exaggeration. The warm ambient lighting, modern furniture, and subtle personal decorations like a bookshelf and a framed artwork in the background enhance the comfortable yet focused atmosphere.",
     #prompt="A warm, hand-drawn animation scene in the style of Studio Ghibli, depicting a graceful East Asian woman in her early fifties standing on a softly lit stage with a deep navy, minimalist background. She has short, silvery-gray hair and wears rounded glasses, a dark blue blazer over a simple black top, and a delicate necklace with a small gemstone. A small headset microphone rests gently by her cheek. Her expression is serene and intelligent, with a gentle smile and kind eyes that sparkle with thoughtfulness. Her gestures are natural and understated—one hand slightly open in mid-motion, the other loosely holding a presentation remote. The overall color palette is warm and earthy, with soft lighting and subtle shading that evoke a calm, inspiring atmosphere. The animation captures her in a mid-shot, conveying wisdom, empathy, and a deep passion for education in a way that feels both magical and grounded.",
-    prompt="The animated scene continues in the same warm, hand-drawn Ghibli style, focusing on a distinguished East Asian woman standing tall against a clean, deep navy background with no visual distractions. Her posture is upright yet composed, and her expression carries a sense of calm determination. Her thoughtful eyes reflect clarity and resolve as she delivers a heartfelt call for educational reform and equal opportunity. Her gestures remain subtle and intentional—one hand gently holding a presentation remote while the other rests naturally—emphasizing confidence without exaggeration. The soft, warm lighting highlights her presence with painterly shading, gently bringing attention to her face and upper body. As the camera slowly moves in, she occasionally glances toward the viewer, creating a quiet but powerful moment of connection. The simplicity of the scene draws full focus to her message and presence, reinforcing her role as a calm, visionary leader.",
+    #prompt="The animated scene continues in the same warm, hand-drawn Ghibli style, focusing on a distinguished East Asian woman standing tall against a clean, deep navy background with no visual distractions. Her posture is upright yet composed, and her expression carries a sense of calm determination. Her thoughtful eyes reflect clarity and resolve as she delivers a heartfelt call for educational reform and equal opportunity. Her gestures remain subtle and intentional—one hand gently holding a presentation remote while the other rests naturally—emphasizing confidence without exaggeration. The soft, warm lighting highlights her presence with painterly shading, gently bringing attention to her face and upper body. As the camera slowly moves in, she occasionally glances toward the viewer, creating a quiet but powerful moment of connection. The simplicity of the scene draws full focus to her message and presence, reinforcing her role as a calm, visionary leader.",
+    prompt="A vibrant, high-resolution video capturing four East Asian adults outdoors at a daytime wedding. The group consists of a groom in a dark suit and colorful tie, a bride in an elegant white gown holding a bouquet, and two casually dressed guests—one in a floral shirt and baggy pants, and another in a hat, sleeveless top, and flowing white skirt. All four are in mid-air, joyfully jumping with big smiles, surrounded by lush green trees, soft sunlight, and a white curtain backdrop adorned with colorful flowers. The mood is cheerful, celebratory, and full of life.",
     negative_prompt="色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走",
     input_image=image,
-    height=1024,
-    width=1024,
+    height=800,
+    width=533,
     num_inference_steps=50,
     seed=0, tiled=True
 )
 if dist.get_rank() == 0:
-    save_video(video, "wan14_i2v_ghibli_dr_su_2.mp4", fps=15, quality=9)
+    save_video(video, "wan14_w.mp4", fps=15, quality=9)
